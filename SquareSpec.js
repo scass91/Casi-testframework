@@ -16,7 +16,7 @@ describe("Square class", function() {
   summary('Error messages can be thrown', function() {
       it("Will throw error if the argument is NaN", function() {
         var s = function() {
-          new Square("simon")
+          new Square("Simon")
         }
         expectError(s, "argument is not a number");
       })

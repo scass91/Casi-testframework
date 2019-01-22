@@ -1,9 +1,3 @@
-
-//show failing tests
-
-//throw error if possible
-//Test failure reasons
-
 function describe(desc, fn) {
   console.log(desc)
   fn()
@@ -20,10 +14,10 @@ function it(msg, fn) {
 
 function expectEquality(provided, output){
   if(provided === output){
-    console.log("passed")
+    console.log("%cpassed", "color: green")
   }
   else{
-      console.log(`failed - expected ${provided}, instead received ${output}`)
+      console.log(`%cfailed - expected ${provided}, instead received ${output}`, "color : red")
       console.trace()
   }
 }
@@ -37,8 +31,8 @@ function expectError(provided, output){
     errMsg = err.message;
   }
   if(errMsg == output) {
-    console.log('   passed');
+    console.log('   %cpassed', "color: green");
   } else {
-    console.log(`   failed expected ${output} got ${errMsg}`)
+    console.log(`   %cfailed expected ${output} got ${errMsg}`, "color: red")
   }
 }
