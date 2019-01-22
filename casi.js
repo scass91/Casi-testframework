@@ -28,8 +28,17 @@ function expectEquality(provided, output){
   }
 }
 
-function expectError(condition, errmsg) {
-  if (condition) {
-    console.log("cheese")
+function expectError(provided, output){
+  var errMsg
+  try {
+    provided()
+  }
+  catch(err) {
+    errMsg = err.message;
+  }
+  if(errMsg == output) {
+    console.log('   passed');
+  } else {
+    console.log(`   failed expected ${output} got ${errMsg}`)
   }
 }

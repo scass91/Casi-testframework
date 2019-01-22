@@ -13,16 +13,19 @@ describe("Square class", function() {
     });
   });
 
-  summary("It can throw errors", function() {
-    // it("It only works for numbers being input", function() {
-    //   k = "cheese"
-    //   s = new Square(k);
-    //   expectError(s);
-    // });
+  summary('Error messages can be thrown', function() {
+      it("Will throw error if the argument is NaN", function() {
+        var s = function() {
+          new Square("simon")
+        }
+        expectError(s, "argument is not a number");
+      })
 
-    it("It will not work for negative numbers", function() {
-      s = new Square(-1);
-      expectError(s);
-    });
+      it("Will throw error if the number provided is negative", function() {
+        var s = function() {
+          new Square(-1)
+        }
+        expectError(s, "size should be a positive number");
+      })
+    })
   });
-});
